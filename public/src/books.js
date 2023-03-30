@@ -11,16 +11,14 @@ function findBookById(books, id) {
 function partitionBooksByBorrowedStatus(books) {
   let returnedBooks = [];
   let missingBooks = [];
-  let bookArray = [];
-  const stillOut = books.find((book) => {
-    if(!!book.borrows.returned){
-      missingBooks.push(book);
-    }else{
+  let foundBooks = books.forEach((book) => {
+    if(!!book.borrows.returned == true){
       returnedBooks.push(book);
+    }else{
+      missingBooks.push(book);
     }
   });
-  bookArray.push(missingBooks, returnedBooks);
-  console.log(bookArray);
+  const bookArray = [returnedBooks, missingBooks];
   return bookArray;
 }
 
