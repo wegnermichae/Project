@@ -10,17 +10,13 @@ function getTotalAccountsCount(accounts) {
   return amount;
 }
 
-function getBooksBorrowedCount(books) {
-  let amount = 0;
-  const count = books.forEach((book) => {
-    if(book.borrows){
-      amount++;
-    }
-  });
-  return amount;
-}
+function getBooksBorrowedCount(books) {}
 
-function getMostCommonGenres(books) {}
+function getMostCommonGenres(books) {
+  let genreCount = {};
+  const g = books.forEach((book) => genreCount.set(book.genre, genreCount.get(book.genre)++));
+  
+}
 
 function getMostPopularBooks(books) {}
 
